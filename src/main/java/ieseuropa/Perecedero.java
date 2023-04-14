@@ -2,20 +2,24 @@ package main.java.ieseuropa;
 
 import java.time.LocalDate;
 import java.time.Period;
+import static java.time.temporal.ChronoUnit.DAYS;
 
-public abstract class Perecedero extends Producto {
+public class Perecedero extends Producto {
 	
 	private float tempCons;
 	private boolean caducado;
+	private int dParaCad;
 
-	public Perecedero(String nombre, float precio, int stock, String fechaCreacion, float tempCons) {
+	public Perecedero(String nombre, float precio, int stock, String fechaCreacion, float tempCons, int dParaCad) {
 		super(nombre, precio, stock, fechaCreacion);
 		this.tempCons = tempCons;
+		this.dParaCad = dParaCad;
 	}
 
-	public Perecedero(String nombre, float precio, int stock, float tempCons) {
+	public Perecedero(String nombre, float precio, int stock, float tempCons, int dParaCad) {
 		super(nombre, precio, stock);
 		this.tempCons = tempCons;
+		this.dParaCad = dParaCad;
 	}
 
 	public float getTempCons() {
@@ -33,14 +37,31 @@ public abstract class Perecedero extends Producto {
 	public void setCaducado(boolean caducado) {
 		this.caducado = caducado;
 	}
-	/*
-	private boolean comprobarCaducidad() {
-		if(Period.between(getFechaCreacion(), LocalDate.now())) {
+	
+	public int getdParaCad() {
+		return dParaCad;
+	}
+
+	public void setdParaCad(int dParaCad) {
+		this.dParaCad = dParaCad;
+	}
+	
+	@Override
+	public String reducirStock(int red) {
+		if(!isCad()) {
+			return super.reducirStock(red);
+		}else {
+			return "Esta caducado no se puede comprar";
+		}
+	}
+
+	private boolean isCad() {
+		if(DAYS.between(getFechaCreacion(), LocalDate.now()) <= 0) {
 			return true;
 		}else {
 			return false;
 		}
-	}*/
+	}
 
 	@Override
 	public String toString() {

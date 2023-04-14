@@ -3,7 +3,7 @@ package main.java.ieseuropa;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Producto {
+public class Producto {
 	
 	private String nombre;
 	private float precio;
@@ -55,6 +55,19 @@ public abstract class Producto {
 
 	public void setFechaCreacion(LocalDate fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+	
+	public float calcPrecioCompra() {
+		return 1;
+	}
+	
+	public String reducirStock(int red) {
+		if(stock >= red) {
+			this.stock -= red;
+			return (precio * calcPrecioCompra()) + " €";
+		}else {
+			return "No hay tantos articulos";
+		}
 	}
 	
 	@Override
