@@ -56,6 +56,15 @@ public abstract class Producto {
 	public void setFechaCreacion(LocalDate fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof Producto)) {
+			return false;
+		}
+		Producto product = (Producto) o;
+		return this.nombre.equals(product.nombre);
+	}
 
 	@Override
 	public String toString() {
