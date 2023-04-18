@@ -63,7 +63,7 @@ public class P13_HernandezPuga_Diego {
 		while(!nombre.equals("0")) {
 			nombre = pedirString("Introduzca el producto que va a comprar: ");
 			if(!nombre.equals("0")) {
-				System.out.println(productos.get(productos.indexOf(new Producto(nombre))).calcPrecioCompra());
+				System.out.println(productos.get(productos.indexOf(new Producto(nombre))).reducirStock(pedirInt("Indique las unidades")));
 			}
 		}
 	}

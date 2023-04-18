@@ -70,7 +70,7 @@ public class Producto {
 	public String reducirStock(int red) {
 		if(stock >= red) {
 			this.stock -= red;
-			return (precio * calcPrecioCompra()) + " €";
+			return "Su precio es " + red + " * (" + precio + " * " + calcPrecioCompra() + ") = " + ( red * (precio * calcPrecioCompra())) + " €";
 		}else {
 			return "No hay tantos articulos";
 		}
