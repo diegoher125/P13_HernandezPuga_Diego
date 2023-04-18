@@ -10,18 +10,24 @@ public class Producto {
 	private int stock;
 	private LocalDate fechaCreacion;
 	
-	public Producto(String nombre, float precio, int stock, String fechaCreacion) {
+	public Producto(String nombre, float precio, int stock, LocalDate fechaCreacion) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		this.fechaCreacion = LocalDate.parse(fechaCreacion, fmt);
+		this.fechaCreacion = fechaCreacion;
 	}
 	
 	public Producto(String nombre, float precio, int stock) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;
+		this.fechaCreacion = LocalDate.now();
+	}
+	
+	public Producto(String nombre) {
+		this.nombre = nombre;
+		this.precio = 0;
+		this.stock = 0;
 		this.fechaCreacion = LocalDate.now();
 	}
 

@@ -10,7 +10,7 @@ public class Perecedero extends Producto {
 	private boolean caducado;
 	private int dParaCad;
 
-	public Perecedero(String nombre, float precio, int stock, String fechaCreacion, float tempCons, int dParaCad) {
+	public Perecedero(String nombre, float precio, int stock, LocalDate fechaCreacion, float tempCons, int dParaCad) {
 		super(nombre, precio, stock, fechaCreacion);
 		this.tempCons = tempCons;
 		this.dParaCad = dParaCad;
@@ -19,6 +19,12 @@ public class Perecedero extends Producto {
 	public Perecedero(String nombre, float precio, int stock, float tempCons, int dParaCad) {
 		super(nombre, precio, stock);
 		this.tempCons = tempCons;
+		this.dParaCad = dParaCad;
+	}
+	
+	public Perecedero(String nombre, int dParaCad) {
+		super(nombre);
+		this.tempCons = 0;
 		this.dParaCad = dParaCad;
 	}
 
@@ -56,7 +62,7 @@ public class Perecedero extends Producto {
 	}
 
 	private boolean isCad() {
-		if(DAYS.between(getFechaCreacion(), LocalDate.now()) <= 0) {
+		if(DAYS.between(getFechaCreacion(), LocalDate.now()) >= dParaCad) {
 			return true;
 		}else {
 			return false;

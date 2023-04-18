@@ -10,8 +10,12 @@ public class Fresco extends Perecedero {
 		super(nombre, precio, stock, tempCons, 10);
 	}
 
-	public Fresco(String nombre, float precio, int stock, String fechaCreacion, float tempCons) {
+	public Fresco(String nombre, float precio, int stock, LocalDate fechaCreacion, float tempCons) {
 		super(nombre, precio, stock, fechaCreacion, tempCons, 10);
+	}
+	
+	public Fresco(String nombre) {
+		super(nombre, 10);
 	}
 	
 	@Override

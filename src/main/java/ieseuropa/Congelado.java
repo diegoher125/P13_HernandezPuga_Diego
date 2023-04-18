@@ -10,8 +10,12 @@ public class Congelado extends Perecedero {
 		super(nombre, precio, stock, tempCons, 21);
 	}
 
-	public Congelado(String nombre, float precio, int stock, String fechaCreacion, float tempCons) {
+	public Congelado(String nombre, float precio, int stock, LocalDate fechaCreacion, float tempCons) {
 		super(nombre, precio, stock, fechaCreacion, tempCons, 21);
+	}
+	
+	public Congelado(String nombre) {
+		super(nombre, 21);
 	}
 	
 	@Override
