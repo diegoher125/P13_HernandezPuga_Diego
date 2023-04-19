@@ -1,7 +1,6 @@
 package main.java.ieseuropa;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Producto {
 	

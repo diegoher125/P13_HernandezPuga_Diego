@@ -41,7 +41,7 @@ public class P13_HernandezPuga_Diego {
 		int stock = pedirInt("Indique el stock: ");
 		switch(pedirInt("Indique su tipo(1-No perecedero, 2-Fresco, 3-Congelado)")) {
 			default: 
-				return new NoPerecedero(nombre, precio, stock);
+				return new Producto(nombre, precio, stock);
 			case 2: 
 				return new Fresco(nombre, precio, stock, pedirFechaCreacion(), pedirFloat("Indique la temperatura de conservacion:"));
 			case 3:

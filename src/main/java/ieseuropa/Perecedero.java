@@ -1,10 +1,9 @@
 package main.java.ieseuropa;
 
 import java.time.LocalDate;
-import java.time.Period;
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class Perecedero extends Producto {
+public abstract class Perecedero extends Producto {
 	
 	private float tempCons;
 	private boolean caducado;
